@@ -22,7 +22,6 @@ function EditProduct(props) {
         axios.get('https://bhoomihillsnaturals-backend.herokuapp.com/edit/'+props.match.params.id).then(res=>{
             if(res.status===200)
             {
-                console.log(res.data);
                 setProduct(res.data);
             }
         }).catch(err=>{
