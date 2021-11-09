@@ -45,7 +45,7 @@ useEffect(() => {
 
 const postData=(e)=>{
     // e.currentTarget.lastChild.children[0].style.color="black";
-    axios.post('http://localhost:3002/edit',allProduct).then(res=>{
+    axios.post('https://bhoomihillsnaturals-backend.herokuapp.com/edit',allProduct).then(res=>{
         if(res.status===200)
         {
             // alert("product updated successfully");
