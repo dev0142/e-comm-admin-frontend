@@ -19,7 +19,7 @@ function EditProduct(props) {
     
 
     const getAllInfo=()=>{
-        axios.get('https://bhoomihillsnaturals-backend.herokuapp.com/edit/'+props.match.params.id).then(res=>{
+        axios.get('https://bhoomihillsnaturalsbackend.herokuapp.com/edit/'+props.match.params.id).then(res=>{
             if(res.status===200)
             {
                 setProduct(res.data);
@@ -66,7 +66,7 @@ const close=()=>
    
     const postData=(e)=>{
         e.preventDefault();
-        axios.post('https://bhoomihillsnaturals-backend.herokuapp.com/edit/'+props.match.params.id,product).then(res=>{
+        axios.post('https://bhoomihillsnaturalsbackend.herokuapp.com/edit/'+props.match.params.id,product).then(res=>{
             if(res.status===200)
             {
                 alert("product updated successfully");

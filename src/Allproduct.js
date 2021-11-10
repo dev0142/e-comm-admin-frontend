@@ -13,7 +13,7 @@ function Allproduct() {
     const[button,setButton]=useState(false);
 
 const fetchAllProducts=()=>{
-    axios.get("https://bhoomihillsnaturals-backend.herokuapp.com/fetch").then(res=>{
+    axios.get("https://bhoomihillsnaturalsbackend.herokuapp.com/fetch").then(res=>{
         setAllProduct(res.data);
         
     }).catch(err=>{
@@ -24,7 +24,7 @@ const fetchAllProducts=()=>{
 const deleteEvent=async(id)=>{
     try {
         if (window.confirm("Are you sure want to delete this event")) {
-            const res=await axios.delete("https://bhoomihillsnaturals-backend.herokuapp.com/delevent",{data:{id:id}});
+            const res=await axios.delete("https://bhoomihillsnaturalsbackend.herokuapp.com/delevent",{data:{id:id}});
 
             if(res.status === 200)
             {
@@ -45,7 +45,7 @@ useEffect(() => {
 
 const postData=(e)=>{
     // e.currentTarget.lastChild.children[0].style.color="black";
-    axios.post('https://bhoomihillsnaturals-backend.herokuapp.com/edit',allProduct).then(res=>{
+    axios.post('https://bhoomihillsnaturalsbackend.herokuapp.com/edit',allProduct).then(res=>{
         if(res.status===200)
         {
             // alert("product updated successfully");

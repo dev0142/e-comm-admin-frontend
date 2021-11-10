@@ -50,7 +50,7 @@ function AddProduct({open,children,onClose}) {
    
     const postData=(e)=>{
         e.preventDefault();
-        axios.post('https://bhoomihillsnaturals-backend.herokuapp.com/addproduct',product).then(res=>{
+        axios.post('https://bhoomihillsnaturalsbackend.herokuapp.com/addproduct',product).then(res=>{
             if(res.status===200)
             {
                 // alert("product added successfully");
