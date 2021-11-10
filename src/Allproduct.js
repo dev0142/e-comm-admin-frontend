@@ -79,7 +79,7 @@ const postData=(e)=>{
                     <th>Action</th>
                 </tr>
                 {
-                    Object.keys(allProduct).length===1 ?
+                    Object.keys(allProduct).length===0 ?
                     <Loader>
                     <LoadingFrame></LoadingFrame>
 
@@ -124,7 +124,7 @@ const postData=(e)=>{
                         return(
                         <tr key={index}>
                             <td contentEditable="false" onClick={(e)=>makeEditable(e)} onBlur={(e)=>change(e,"name")} style={{textAlign:`center`}}>{product.name}</td>
-                            <td contentEditable="false" onClick={(e)=>makeEditable(e)} onBlur={(e)=>change(e)} style={{textAlign:`center`}}><img style={{height:`60px`,width:`60px`}} src={product.images[0]}   alt={product.name} /></td>
+                            <td contentEditable="false" onClick={(e)=>makeEditable(e)} onBlur={(e)=>change(e)} style={{textAlign:`center`}}><img style={{height:`60px`,width:`60px`}} src={product.images[0]}  alt={product.name} /></td>
                             <td contentEditable="false" onClick={(e)=>makeEditable(e)} onBlur={(e)=>change(e,"category")} name="category" style={{textAlign:`center`}}>{product.category}</td>
                             <td contentEditable="false" onClick={(e)=>makeEditable(e)} onBlur={(e)=>change(e,"brand")} style={{textAlign:`center`}}>{product.brand}</td>
                             <td contentEditable="false" onClick={(e)=>makeEditable(e)} onBlur={(e)=>change(e,"price")} style={{textAlign:`center`}}>{product.price}</td>

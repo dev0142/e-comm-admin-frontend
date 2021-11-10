@@ -6,9 +6,13 @@ import axios from "axios"
 import Resizer from "react-image-file-resizer";
 
 function AddProduct({open,children,onClose}) {
+    const [imageToResizeWidth, setImageToResizeWidth] = useState();
+    const [imageToResizeHeight, setImageToResizeHeight] = useState();
+
     const[product,setProduct]=useState({name:"",category:"",brand:"", description:"" ,quantity:null, price:null , discount:null , images:[]});
     // const changeRef=useRef();
     const history= useHistory();
+
     let items,value;
     const handleInput=(e)=>{
         items=e.target.name;
@@ -20,12 +24,27 @@ function AddProduct({open,children,onClose}) {
 
     const uploadImage=async(e)=>{
         const allImages=[];
-        for (var i = 0; i < e.target.files.length; i++) {
+        
+        if(e.target.files && e.target.files.length > 0)
+        {
             
-            const base64=await resizeFile(e.target.files[i]);
+            for (var i = 0; i < e.target.files.length; i++) {
+                var reader = new FileReader();
+                reader.readAsDataURL(e.target.files[i]);
+                reader.onload = function (e) {
+                    var image = new Image();
+                    image.src = e.target.result;
+                    image.onload = function () {
+                        var height = this.height;
+                        var width = this.width;
+                        setImageToResizeHeight(height);
+                        setImageToResizeWidth(width);
+                    }}
+            const base64 = await resizeFile(e.target.files[i]);
             allImages.push(base64);
         }
         setProduct((product)=>({...product,images:allImages}));
+    }
     }
     
 
@@ -35,10 +54,10 @@ function AddProduct({open,children,onClose}) {
     return new Promise((resolve) => {
     Resizer.imageFileResizer(
       file,
-      1098,
-      968,
-      "jpeg",
-      100,
+      792,
+      528,
+      "JPEG",
+      80,
       0,
       (uri) => {
         resolve(uri);
